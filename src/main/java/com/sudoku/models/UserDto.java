@@ -9,8 +9,8 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
-public class TableDto {
+public class UserDto {
     private Long id;
-    private Long attempted;
-    private int[][] table=new int[9][9];
+    private String username;
+    private String password;
 }
