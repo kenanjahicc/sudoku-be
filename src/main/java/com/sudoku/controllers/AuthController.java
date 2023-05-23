@@ -2,8 +2,11 @@ package com.sudoku.controllers;
 
 import com.sudoku.models.dtos.AuthenticationRequestPayload;
 import com.sudoku.models.dtos.AuthenticationResponsePayload;
+import com.sudoku.models.entities.UserEntity;
+import com.sudoku.repositories.UserRepository;
 import com.sudoku.util.JwtUtil;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -13,16 +16,28 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
+import java.util.Objects;
+
 @Controller
 @RequiredArgsConstructor
 public class AuthController {
 
+    private final UserRepository userRepository;
+
     private final AuthenticationManager authenticationManager;
     private final JwtUtil jwtTokenUtil;
 
-    @GetMapping("/authenticate")
-    public String posaljiPostANeGetRequest(){
-        return "Posalji post a ne get req";
+    @PostMapping("/register")
+    public ResponseEntity<String> registerUser(
+            @RequestBody AuthenticationRequestPayload payload
+    ) {
+       if(userRepository.findFirstByUsername(payload.getUsername())!=null){
+           return ResponseEntity.badRequest().body("Already used username");
+       }
+       else{
+           userRepository.save(new UserEntity(payload.getUsername(), payload.getPassword()));
+           return  ResponseEntity.ok("Data is valid");
+       }
     }
     @PostMapping("/authenticate")
     public ResponseEntity<AuthenticationResponsePayload> createAuthenticationToken(
