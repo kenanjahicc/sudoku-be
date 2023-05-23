@@ -24,9 +24,9 @@ public class UserService implements UserDetailsService {
         UserEntity user = getFullUserByUsername(userName);
         // todo !!!
         user = new UserEntity();
-        user.setUsername("heyyou");
+        user.setUsername("tarik");
         //$2a$12$6zdoF5KmZTdGH2/EkVav0.wQB.K.RxsKb6EfPeXUl0rNQ8xQaRUcS
-        user.setPassword("$2a$12$EgZR0vmDaI1u6kv/ePZMG.Mq4gLMIkRagfZVhFLx8gP54XuTyuuwq"); // samsung
+        user.setPassword("$2a$12$6zdoF5KmZTdGH2/EkVav0.wQB.K.RxsKb6EfPeXUl0rNQ8xQaRUcS"); //samsung
 
         return new org.springframework.security.core.userdetails.User(user.getUsername(),
                 user.getPassword(), Collections.emptyList());
