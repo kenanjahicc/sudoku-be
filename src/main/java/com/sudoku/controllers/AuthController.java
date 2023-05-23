@@ -9,6 +9,7 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -19,6 +20,10 @@ public class AuthController {
     private final AuthenticationManager authenticationManager;
     private final JwtUtil jwtTokenUtil;
 
+    @GetMapping("/authenticate")
+    public String posaljiPostANeGetRequest(){
+        return "Posalji post a ne get req";
+    }
     @PostMapping("/authenticate")
     public ResponseEntity<AuthenticationResponsePayload> createAuthenticationToken(
             @RequestBody AuthenticationRequestPayload payload

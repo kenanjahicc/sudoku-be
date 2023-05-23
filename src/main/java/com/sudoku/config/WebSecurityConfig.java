@@ -27,7 +27,10 @@ public class WebSecurityConfig {
                 .authorizeHttpRequests((authz) -> authz
                         // don't authenticate this particular request
                         .requestMatchers("/authenticate",
-                                "/user/**"
+                                "/table/**",
+                                "/record/**",
+                                "/group/**",
+                                "/score/**"
                         ).permitAll()
                         // all other requests need to be authenticated
                         .anyRequest().authenticated()
