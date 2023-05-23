@@ -26,12 +26,7 @@ public class WebSecurityConfig {
                 .cors().and()
                 .authorizeHttpRequests((authz) -> authz
                         // don't authenticate this particular request
-                        .requestMatchers("/authenticate",
-                                "/table/**",
-                                "/record/**",
-                                "/group/**",
-                                "/score/**"
-                        ).permitAll()
+                        .requestMatchers("/**").permitAll()
                         // all other requests need to be authenticated
                         .anyRequest().authenticated()
                 )
