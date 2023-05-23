@@ -1,5 +1,6 @@
 package com.sudoku.controllers;
 
+import com.sudoku.models.RecordDto;
 import com.sudoku.models.TableDto;
 import com.sudoku.services.TableService;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,14 +17,22 @@ public class TableController {
         this.tableService = tableService;
     }
 
-    @GetMapping("/{diff}")
-    public TableDto getTable(@PathVariable long diff){
-        return tableService.getTable(diff);
+    @GetMapping("/{difficulty}")
+    public TableDto getTable(@PathVariable long difficulty){
+        return tableService.getTable(difficulty);
     }
     @GetMapping
     public TableDto getRandomTableDiff(){
         return tableService.getRandomTableDiff();
     }
+//    @GetMapping("/count/all")
+//    public long getNumOfTriesTotal(){
+//        return userService.getNumOfTriesTotal();
+//    }
+//    @
+//    public RecordDto getHighScores(){
+//        return userService.getHighScores();
+//    }
 
 
 }

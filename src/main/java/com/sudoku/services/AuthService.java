@@ -11,11 +11,10 @@ import org.springframework.stereotype.Service;
 import java.util.Collections;
 
 @Service
-public class UserService implements UserDetailsService {
+public class AuthService implements UserDetailsService {
 
     private final UserRepository userRepository;
-
-    public UserService(UserRepository userRepository) {
+    public AuthService(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
 
@@ -25,7 +24,6 @@ public class UserService implements UserDetailsService {
         // todo !!!
         user = new UserEntity();
         user.setUsername("heyyou");
-        //$2a$12$6zdoF5KmZTdGH2/EkVav0.wQB.K.RxsKb6EfPeXUl0rNQ8xQaRUcS
         user.setPassword("$2a$12$EgZR0vmDaI1u6kv/ePZMG.Mq4gLMIkRagfZVhFLx8gP54XuTyuuwq"); // samsung
 
         return new org.springframework.security.core.userdetails.User(user.getUsername(),

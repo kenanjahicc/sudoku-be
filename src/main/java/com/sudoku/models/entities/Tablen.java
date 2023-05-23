@@ -3,7 +3,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
-@Table(name = "Table")
+@Table(name = "app_table")
 @Getter
 @Setter
 @AllArgsConstructor
@@ -14,6 +14,6 @@ public class Tablen {
     private long id;
     @Column(name="attempted")
     private Long attempted;
-    @Column(name="table")
-    private int[][] table=new int[9][9];
+    @Column(name="s_table")
+    private String table;
 }
