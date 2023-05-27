@@ -15,10 +15,4 @@ public class TableDto {
     private int[][] table=new int[9][9];
     private int difficulty;
 
-    public TableDto(int difficulty,Long attempted , int[][] table) {
-        this.difficulty = difficulty;
-        this.table = table;
-        this.attempted=attempted;
-    }
-
 }
