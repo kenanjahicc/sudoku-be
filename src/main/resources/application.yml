@@ -5,7 +5,7 @@ spring:
   profiles:
     active: dev
   datasource:
-    url: jdbc:postgresql://${APP_DB_URL:localhost}:${APP_DB_PORT:5432}/${APP_DB_NAME:mydb}
+    url: jdbc:postgresql://${APP_DB_URL:localhost}:${APP_DB_PORT:5432}/${APP_DB_NAME:testing}
     username: ${APP_DB_USERNAME:postgres}
     password: ${APP_DB_PASSWORD:admin}
   jpa:

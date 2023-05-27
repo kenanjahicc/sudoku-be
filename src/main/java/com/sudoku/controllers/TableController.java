@@ -18,10 +18,10 @@ public class TableController {
     }
 
     @GetMapping("/{difficulty}")
-    public TableDto getTable(@PathVariable long difficulty){
-        return tableService.getTable(difficulty);
+    public TableDto getTableOne(@PathVariable long difficulty){
+        return tableService.getTableOne(difficulty);
     }
-    @GetMapping
+    @GetMapping("/random")
     public TableDto getRandomTableDiff(){
         return tableService.getRandomTableDiff();
     }

@@ -16,7 +16,7 @@ public class TableService {
         this.tableRepository = tableRepository;
     }
 
-    public TableDto getTable(long diff){
+    public TableDto getTableOne(long diff){
         return null;
     }
     public TableDto getRandomTableDiff(){
@@ -25,21 +25,20 @@ public class TableService {
         long randomnum=random.nextLong(maxid+1);
         Tablen y=tableRepository.findById(randomnum).get();
         String tabela= y.getTable();
-        int[][] novatabela=new int[9][9];
-        char[] tabela2=tabela.toCharArray();
-        int counter=0;
-        for(int i=0;i<9;i++){
+        int[][] novatabela = new int[9][9];
 
-            for(int j=0;j<9;j++) {
-                novatabela[i][j]=Integer.valueOf(tabela2[counter]);
+        int counter = 0;
+        for (int i = 0; i < 9; i++) {
+            for (int j = 0; j < 9; j++) {
+                char ch = tabela.charAt(counter);
+                int intValue = (int) ch; // Convert the character to an integer
+                intValue-=48;
+                novatabela[i][j] = intValue;
+                counter++;
             }
-            counter++;
         }
 
-        TableDto finalna=new TableDto(y.getDifficulty(),y.getAttempted(),novatabela);
-
-
-        return finalna;
+        return new TableDto(y.getDifficulty(), y.getAttempted(), novatabela);
     }
     public long getNumOfTriesTotal() {
         return 0;
