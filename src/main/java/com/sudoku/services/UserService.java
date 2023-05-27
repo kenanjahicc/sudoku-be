@@ -22,11 +22,11 @@ public class UserService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
         UserEntity user = getFullUserByUsername(userName);
-        // todo !!!
         user = new UserEntity();
-        user.setUsername("tarik");
+        user.setUsername(userName);
         //$2a$12$6zdoF5KmZTdGH2/EkVav0.wQB.K.RxsKb6EfPeXUl0rNQ8xQaRUcS
-        user.setPassword("$2a$12$6zdoF5KmZTdGH2/EkVav0.wQB.K.RxsKb6EfPeXUl0rNQ8xQaRUcS"); //samsung
+        userRepository.findFirstByUsername(userName);
+        user.setPassword(userRepository.findFirstByUsername(userName).getPassword());
 
         return new org.springframework.security.core.userdetails.User(user.getUsername(),
                 user.getPassword(), Collections.emptyList());

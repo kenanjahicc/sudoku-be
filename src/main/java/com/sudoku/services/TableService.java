@@ -72,7 +72,4 @@ public class TableService {
         return new TableDto(y.getId(), y.getAttempted(), novatabela,y.getDifficulty());
     }
 
-    public RecordDto getHighScores() {
-        return null;
-    }
 }

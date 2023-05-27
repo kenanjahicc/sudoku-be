@@ -26,6 +26,7 @@ public class AuthController {
     private final UserRepository userRepository;
 
     private final AuthenticationManager authenticationManager;
+    private final CustomAuthenticationManager customAuthenticationManager;
     private final JwtUtil jwtTokenUtil;
 
 
@@ -37,7 +38,8 @@ public class AuthController {
            return ResponseEntity.badRequest().body("Already used username");
        }
        else{
-           userRepository.save(new UserEntity(payload.getUsername(), payload.getPassword()));
+           String op=customAuthenticationManager.passwordEncoder().encode(payload.getPassword());
+           userRepository.save(new UserEntity(payload.getUsername(), op));
            return  ResponseEntity.ok("Data is valid");
        }
     }

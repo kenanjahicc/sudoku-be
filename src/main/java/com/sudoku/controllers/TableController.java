@@ -25,10 +25,6 @@ public class TableController {
     public TableDto getRandomTableDiff(){
         return tableService.getRandomTableDiff();
     }
-//    @
-//    public RecordDto getHighScores(){
-//        return userService.getHighScores();
-//    }
 
 
 }

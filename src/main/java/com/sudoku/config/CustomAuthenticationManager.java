@@ -1,5 +1,6 @@
 package com.sudoku.config;
 
+import com.sudoku.repositories.UserRepository;
 import com.sudoku.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -15,12 +16,18 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class CustomAuthenticationManager implements AuthenticationManager {
+    private final UserRepository userRepository;
+
 
     @Autowired
     private UserService customUserDetailsService;
 
+    public CustomAuthenticationManager(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
+
     @Bean
-    protected PasswordEncoder passwordEncoder() {
+    public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
 
