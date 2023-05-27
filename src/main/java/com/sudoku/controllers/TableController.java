@@ -25,10 +25,6 @@ public class TableController {
     public TableDto getRandomTableDiff(){
         return tableService.getRandomTableDiff();
     }
-//    @GetMapping("/count/all")
-//    public long getNumOfTriesTotal(){
-//        return userService.getNumOfTriesTotal();
-//    }
 //    @
 //    public RecordDto getHighScores(){
 //        return userService.getHighScores();

@@ -71,9 +71,6 @@ public class TableService {
 
         return new TableDto(y.getId(), y.getAttempted(), novatabela,y.getDifficulty());
     }
-    public long getNumOfTriesTotal() {
-        return 0;
-    }
 
     public RecordDto getHighScores() {
         return null;
