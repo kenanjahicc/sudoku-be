@@ -30,7 +30,6 @@ public class HighScoreService {
     public ResponseEntity<List<Record>> topTen(Long tableId){
         ArrayList<Record> listasvi= (ArrayList<Record>) scoreRepository.findAllByTableId(tableId);
         Collections.sort(listasvi);
-        Collections.reverse(listasvi);
         List<Record> finalni=new ArrayList<>();
 
         int countTo=listasvi.size();
