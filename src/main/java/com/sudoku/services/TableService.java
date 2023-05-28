@@ -19,7 +19,7 @@ public class TableService {
     }
 
     public TableDto getTableOne(long diff){
-        if(diff<0||diff>3){
+        if(diff<=0||diff>=3){
             return new TableDto();
         }
         List<Tablen> x = tableRepository.findAll();

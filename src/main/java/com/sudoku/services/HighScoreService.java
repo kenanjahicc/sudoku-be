@@ -24,15 +24,8 @@ public class HighScoreService {
     }
 
     public ResponseEntity<String> addRecord(Long tableId, Long userId, Long seconds) {
-        if(tableId>0&& tableId< tableRepository.count()-1
-                && userId>0 && userId< userRepository.count()
-                && seconds>0){
             scoreRepository.save(new Record(tableId,userId,seconds));
             return ResponseEntity.ok("Data is valid");
-        }
-        else {
-            return ResponseEntity.badRequest().body("Bad parameters");
-        }
     }
     public ResponseEntity<List<Record>> topTen(Long tableId){
         ArrayList<Record> listasvi= (ArrayList<Record>) scoreRepository.findAllByTableId(tableId);

@@ -1,5 +1,6 @@
 package com.sudoku.controllers;
 
+import com.sudoku.models.dtos.RecordRequestPayload;
 import com.sudoku.models.entities.Record;
 import com.sudoku.services.HighScoreService;
 import org.springframework.http.ResponseEntity;
@@ -21,8 +22,8 @@ public class RecordController {
         return highScoreService.topTen(tableId);
     }
     @PostMapping("/add")
-    public ResponseEntity<String> addRecord(@RequestBody Long tableId, Long userId, Long seconds){
-        return highScoreService.addRecord(tableId, userId, seconds);
+    public ResponseEntity<String> addRecord(@RequestBody RecordRequestPayload recordRequest){
+        return highScoreService.addRecord(recordRequest.getTableId(), recordRequest.getUserId(), recordRequest.getSeconds());
     }
 
 
