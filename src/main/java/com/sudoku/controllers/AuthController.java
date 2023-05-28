@@ -40,7 +40,7 @@ public class AuthController {
        else{
            String op=customAuthenticationManager.passwordEncoder().encode(payload.getPassword());
            userRepository.save(new UserEntity(payload.getUsername(), op));
-           return  ResponseEntity.ok("Data is valid");
+           return  ResponseEntity.ok("\"Data is valid\"");
        }
     }
     @PostMapping("/authenticate")
