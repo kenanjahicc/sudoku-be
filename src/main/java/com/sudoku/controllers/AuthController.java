@@ -43,6 +43,10 @@ public class AuthController {
            return  ResponseEntity.ok("Data is valid");
        }
     }
+    @GetMapping
+    public Long getUserId(String username){
+        return userRepository.findFirstByUsername(username).getId();
+    }
     @PostMapping("/authenticate")
     public ResponseEntity<AuthenticationResponsePayload> createAuthenticationToken(
             @RequestBody AuthenticationRequestPayload payload
