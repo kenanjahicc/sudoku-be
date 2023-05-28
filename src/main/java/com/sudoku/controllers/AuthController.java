@@ -13,6 +13,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import com.sudoku.config.CustomAuthenticationManager;
@@ -43,8 +44,8 @@ public class AuthController {
            return  ResponseEntity.ok("Data is valid");
        }
     }
-    @GetMapping("/whatsmyid")
-    public Long getUserId(String username){
+    @GetMapping("/whatsmyid/{username}")
+    public Long getUserId(@PathVariable String username){
         return userRepository.findFirstByUsername(username).getId();
     }
     @PostMapping("/authenticate")
