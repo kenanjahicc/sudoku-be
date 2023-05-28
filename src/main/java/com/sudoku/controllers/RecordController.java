@@ -5,6 +5,7 @@ import com.sudoku.models.entities.Record;
 import com.sudoku.services.HighScoreService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import com.sudoku.models.RecordDto;
 
 import java.util.List;
 
@@ -18,7 +19,7 @@ public class RecordController {
     }
 
     @GetMapping("/{tableId}")
-    public ResponseEntity<List<Record>> topTen(@PathVariable Long tableId){
+    public ResponseEntity<List<RecordDto>> topTen(@PathVariable Long tableId){
         return highScoreService.topTen(tableId);
     }
     @PostMapping("/add")

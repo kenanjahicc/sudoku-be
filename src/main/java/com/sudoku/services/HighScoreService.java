@@ -8,6 +8,7 @@ import com.sudoku.repositories.UserRepository;
 import org.springframework.http.ResponseEntity;
 import org.springframework.javapoet.ClassName;
 import org.springframework.stereotype.Service;
+import com.sudoku.models.RecordDto;
 
 import java.util.*;
 
@@ -27,16 +28,20 @@ public class HighScoreService {
             scoreRepository.save(new Record(tableId,userId,seconds));
             return ResponseEntity.ok("Data is valid");
     }
-    public ResponseEntity<List<Record>> topTen(Long tableId){
+    public ResponseEntity<List<RecordDto>> topTen(Long tableId){
+        String username="";
         ArrayList<Record> listasvi= (ArrayList<Record>) scoreRepository.findAllByTableId(tableId);
         Collections.sort(listasvi);
-        List<Record> finalni=new ArrayList<>();
+        List<RecordDto> finalni=new ArrayList<>();
 
         int countTo=listasvi.size();
         if(listasvi.size()>10) countTo = 10;
 
         for (int i=0;i<countTo;i++) {
-            finalni.add(listasvi.get(i));
+            username=userRepository.findById(listasvi.get(i).getId()).get().getUsername();
+
+            finalni.add(new RecordDto(listasvi.get(i).getTableId(),
+                    username,listasvi.get(i).getSeconds()));
         }
         return ResponseEntity.ok(finalni);
     }

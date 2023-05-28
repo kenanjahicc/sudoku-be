@@ -10,8 +10,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class RecordDto {
-    private Long id;
     private Long tableId;//Foreign Key
-    private Long userId;//Foreign Key
+    private String userId;//Foreign Key
     private Long seconds;
 }
