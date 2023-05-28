@@ -30,7 +30,6 @@ public class AuthController {
     private final CustomAuthenticationManager customAuthenticationManager;
     private final JwtUtil jwtTokenUtil;
 
-
     @PostMapping("/register")
     public ResponseEntity<String> registerUser(
             @RequestBody AuthenticationRequestPayload payload
@@ -43,10 +42,6 @@ public class AuthController {
            userRepository.save(new UserEntity(payload.getUsername(), op));
            return  ResponseEntity.ok("Data is valid");
        }
-    }
-    @GetMapping("/whatsmyid/{username}")
-    public Long getUserId(@PathVariable String username){
-        return userRepository.findFirstByUsername(username).getId();
     }
     @PostMapping("/authenticate")
     public ResponseEntity<AuthenticationResponsePayload> createAuthenticationToken(

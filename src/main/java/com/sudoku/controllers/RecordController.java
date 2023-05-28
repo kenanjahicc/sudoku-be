@@ -16,8 +16,8 @@ public class RecordController {
         this.highScoreService = highScoreService;
     }
 
-    @GetMapping("{tableId}")
-    public List<Record> topTen(@PathVariable Long tableId){
+    @GetMapping("/{tableId}")
+    public ResponseEntity<List<Record>> topTen(@PathVariable Long tableId){
         return highScoreService.topTen(tableId);
     }
     @PostMapping("/add")

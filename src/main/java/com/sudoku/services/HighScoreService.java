@@ -34,7 +34,7 @@ public class HighScoreService {
             return ResponseEntity.badRequest().body("Bad parameters");
         }
     }
-    public List<Record> topTen(Long tableId){
+    public ResponseEntity<List<Record>> topTen(Long tableId){
         ArrayList<Record> listasvi= (ArrayList<Record>) scoreRepository.findAllByTableId(tableId);
         Collections.sort(listasvi);
         Collections.reverse(listasvi);
@@ -46,6 +46,6 @@ public class HighScoreService {
         for (int i=0;i<countTo;i++) {
             finalni.add(listasvi.get(i));
         }
-        return finalni;
+        return ResponseEntity.ok(finalni);
     }
 }
