@@ -10,7 +10,7 @@ import lombok.*;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Record {
+public class Record implements Comparable<Record>{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -20,4 +20,15 @@ public class Record {
     private Long userId;//Foreign Key
     @Column(name="seconds")
     private Long seconds;
+
+    public Record(Long tableId, Long userId, Long seconds) {
+        this.tableId = tableId;
+        this.userId = userId;
+        this.seconds = seconds;
+    }
+
+    @Override
+    public int compareTo(Record o) {
+        return Long.compare(this.seconds, o.seconds);
+    }
 }
