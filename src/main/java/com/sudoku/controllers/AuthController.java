@@ -43,7 +43,7 @@ public class AuthController {
            return  ResponseEntity.ok("Data is valid");
        }
     }
-    @GetMapping
+    @GetMapping("/whatsmyid")
     public Long getUserId(String username){
         return userRepository.findFirstByUsername(username).getId();
     }
