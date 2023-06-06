@@ -32,7 +32,7 @@ url: https://documenter.getpostman.com/view/27348680/2s93sZ5Ysi
 - Adding sudoku board record
 - Returning top 10 records for that board
 
-## 4. Technical requirements
+## 3. Technical requirements
 
 The sudoku-be is built using the following technologies: Java, Spring, PostgreSQL
 
