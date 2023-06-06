@@ -23,7 +23,7 @@ url: https://documenter.getpostman.com/view/27348680/2s93sZ5Ysi
 - Run the following command to start the application: \
 `mvn spring-boot:run` 
 
-- The application will start on port 8080 by default. You can change the port number in the application.properties file.
+- The application will start on port 8080 by default. You can change the port number in the application.yml file.
 
 ## 2. Features
 
