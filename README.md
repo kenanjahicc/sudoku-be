@@ -7,8 +7,14 @@ Frontend URL: https://sudoku-dede-mi.netlify.app/
 ### Postman Documentation
 url: https://documenter.getpostman.com/view/27348680/2s93sZ5Ysi
 
-### Installation
-git clone https://github.com/kenanjahicc/sudoku-be.git
+### Local installation
+- Clone the project repository using the following command:
+`git clone https://github.com/kenanjahicc/sudoku-be.git`
+- Navigate to the project directory and run the following command to build the project:
+`mvn clean install`
+- Run the following command to start the application:
+`mvn spring-boot:run`
+- The application will start on port 8080 by default. You can change the port number in the application.properties file.
 
 ## 2. Features
 - Authentification
